@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="articleApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="public/js/article.js"></script>
+</head>
+<body ng-controller="tableCtrl">
+    <h1>게시판</h1>
+    <input type='text' id='title'>
+    <input type='text' id='content'>
+    <button ng-click='gogo()'>제출</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>제목</th>
+                <th>내용</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="article in articles">
+                <td>{{article.title}}</td>
+                <td>{{article.content}}</td>
+                <td>
+                    <button ng-click="modify(article._id)">수정</button>
+                </td>
+                <td>
+                    <button ng-click="delete(article._id)">삭제</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
